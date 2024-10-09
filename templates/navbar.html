@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar</title>
+</head>
+<body>
+  <nav class="bg-gray-800 text-white py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4">
+      <div class="flex items-center space-x-8">
+        <a href="{% url 'home' %}" class="text-2xl font-bold hover:text-gray-300">PHOTO GALLERY</a>
+        <a href="{% url 'add_pic' %}" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-l font-medium">
+          Add Picture
+        </a>
+      </div>
+  
+      <div>
+        {% if user.is_authenticated%}
+        <a href="{% url 'logout' %}" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-l font-medium">
+          Log Out
+        </a>
+        {% else %}
+        <a href="{% url 'login' %}" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-l font-medium">
+          Log In
+        </a>
+        <a href="{% url 'register' %}" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-l font-medium">
+          Register
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+</body>
+</html>

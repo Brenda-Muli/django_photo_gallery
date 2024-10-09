@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+{% block content %}
+<h1>Sign Up to your Photo Gallery</h1>
+<hr>
+<form method= 'POST' action = "{% url 'register' %}"> 
+    
+{% csrf_token %}
+{{ registerform.as_p }}
+<button type="submit">register</button>
+</form>
+<p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+{% endblock %}
+

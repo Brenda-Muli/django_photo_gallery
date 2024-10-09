@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Add Image-Photo Gallery {% endblock %}
+
+
+{% block content  %}
+
+<form method="POST" action = "{% url 'add_pic' %}" enctype="multipart/form-data">
+{% csrf_token %}
+{{ add_picture.as_p }}
+
+<button type="submit" > Save </button>
+</form>
+
+{% endblock %}
+
+

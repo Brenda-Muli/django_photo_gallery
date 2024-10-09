@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>{{ pic.title }} Picture Detail- Gallery</title>
+{% endblock %}
+
+{% block content %}
+<h1>{{ pic.title }}</h1>
+<img src="{{ pic.image.url }}" alt="{{ pic.title }}" class="w-full h-auto">
+<p>{{ pic.description }}</p>
+<p>Category: {{ pic.get_tag_category_display }}</p>
+<p>Likes: {{ pic.likes.count }}</p>
+
+<form method="POST" action="{% url 'picture_detail' pic.id %}">
+    {% csrf_token %}
+    <button type="submit" class="text-xl focus:outline-none">
+        {% if request.user in pic.likes.all %}
+            <span style="color: red;">❤️</span> 
+        {% else %}
+            <span style="color: grey;">🤍</span> 
+        {% endif %}
+    </button>
+</form>
+
+
+{% endblock %}
