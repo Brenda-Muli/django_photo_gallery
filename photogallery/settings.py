@@ -33,7 +33,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOST', '').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOST', 'https://photo-gallery-wl5k.onrender.com').split(',')
 
 cloudinary.config(
   cloud_name = os.getenv('CLOUDINARY_CLOUD_NAME'),
