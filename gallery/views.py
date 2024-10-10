@@ -69,7 +69,7 @@ def add_pic(request):
   return render(request, 'add_pic.html',{'add_picture': add_picture})
 
 #Picture detail view
-@login_required(login_url = 'login_user')
+@login_required(login_url = 'login')
 def picture_detail(request, pic_id):
     pic = get_object_or_404(Gallery, id = pic_id)
     form = DisplayForm(instance=pic)
@@ -86,6 +86,6 @@ def picture_detail(request, pic_id):
 #Logout
 def logout(request):
     auth_logout(request)
-    return redirect('login_user')
+    return redirect('login')
 
     

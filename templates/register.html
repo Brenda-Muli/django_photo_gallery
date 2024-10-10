@@ -1,18 +1,23 @@
 {% extends 'base.html'%}
 
 {% block title %}
-Sign Up
+Register- Photo Gallery
 {% endblock %}
 
 {% block content %}
 <h1>Sign Up to your Photo Gallery</h1>
+<br>
 <hr>
-<form method= 'POST' action = "{% url 'register' %}"> 
+<br>
+<div class="max-w-md mx-auto p-6 bg-white shadow-lg rounded-md">
+  <form method= 'POST' action = "{% url 'register' %}"> 
     
-{% csrf_token %}
-{{ registerform.as_p }}
-<button type="submit">register</button>
-</form>
-<p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+    {% csrf_token %}
+    {{ registerform.as_p }}
+    <button class ="fbg-black text-white"type="submit">REGISTER</button>
+  </form>
+</div>
+<br>
+<p class= "text-center ">Already have an account? <a href="{% url 'login' %}">Log in</a></p>
 {% endblock %}
 

@@ -5,14 +5,17 @@ Log In - Photo Gallery
 {% endblock %}
 
 {% block content %}
-<h1>Login to Vision Board Gallery</h1>
+<h1>Login to your Photo Gallery</h1>
+<br>
 <hr>
-<form method = 'POST' action = "{% url 'login' %}">
+<br>
+<div class="max-w-md mx-auto p-6 bg-white shadow-lg rounded-md">
+  <form method = 'POST' action = "{% url 'login' %}">
     
-{% csrf_token %}
-{{ loginform.as_p }}
-<button type="submit">login</button>
-</form>
-<p>Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
-
+   {% csrf_token %}
+   {{ loginform.as_p }}
+   <button class="bg-black text-white" type="submit">login</button>
+  </form>
+<p class= "text-center ">Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
+</div>
 {% endblock %}
